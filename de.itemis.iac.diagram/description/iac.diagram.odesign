@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="iac.diagram" version="12.0.0.2017041100">
+  <ownedViewpoints name="MyViewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Model" initialisation="true" domainClass="Model" enablePopupBars="true">
+      <metamodel href="../../de.itemis.iac/model/generated/IACDSL.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="Issue" domainClass="Issue">
+          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Improvement" domainClass="Improvement">
+          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Solution" domainClass="Solution">
+          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="IssueToImprovement" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Issue']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Improvement']" targetFinderExpression="feature:improvedBy">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="SolutionToIssueEase" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Solution']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Issue']" targetFinderExpression="feature:eases">
+          <style lineStyle="dash_dot" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="SolutionToIssueBlockedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Solution']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Issue']" targetFinderExpression="feature:blockedBy">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="de.itemis.iac.diagram.Services"/>
+  </ownedViewpoints>
+</description:Group>
