@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.itemis.de/iac/IACDSL"
+			class = "de.itemis.iac.iACDSL.IACDSLPackage"
+			genModel = "model/generated/IACDSL.genmodel" />
+	</extension>
+</plugin>

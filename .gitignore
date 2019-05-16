@@ -28,3 +28,5 @@ xtend-gen/
 target/
 generated/
 .settings/
+bin/
+test-bin/

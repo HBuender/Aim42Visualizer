@@ -1,0 +1,40 @@
+grammar de.itemis.iac.IACDSL with org.eclipse.xtext.common.Terminals
+
+generate iACDSL "http://www.itemis.de/iac/IACDSL"
+
+Model:
+	nodes+=Node*;
+
+Node:
+	Benefit | NFR | Requirement | Solution | Issue | Cause | Improvement | Risk;
+
+Benefit:
+	"benefit" name=ID doc=STRING;
+
+NFR:
+	"nfr" name=ID doc=STRING
+	"implemented" "by" implementedBy+=[Solution] (',' implementedBy+=[Solution])*
+	"challenged" "by" challengedBy+=[Issue] (',' challengedBy+=[Issue])*;
+
+Requirement:
+	"requirement" name=ID doc=STRING;
+
+Solution:
+	'solution' name=ID doc=STRING
+	"blocked" "by" blockedBy+=[Issue] (',' blockedBy+=[Issue])*
+	'eases' eases+=[Issue](','eases+=[Issue])*
+;
+
+Issue:
+	'issue' name=ID doc=STRING
+	'caused' 'by' causedBy+=[Cause](','causedBy+=[Cause])*
+	'improved' 'by' improvedBy+=[Improvement](','improvedBy+=[Improvement])*
+;
+Cause:
+	'cause' name=ID doc=STRING;
+
+Improvement:
+	'improvement' name=ID doc=STRING;
+
+Risk:
+	'risk' name=ID doc=STRING;
