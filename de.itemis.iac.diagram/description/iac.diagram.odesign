@@ -3,29 +3,65 @@
   <ownedViewpoints name="MyViewpoint">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Model" initialisation="true" domainClass="Model" enablePopupBars="true">
       <metamodel href="../../de.itemis.iac/model/generated/IACDSL.ecore#/"/>
+      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.mrtree" label="ELK Mr. Tree" description="Tree-based algorithm provided by the Eclipse Layout Kernel. Computes a spanning tree of the input graph and arranges all nodes according to the resulting parent-children hierarchy. I pity the fool who doesn't use Mr. Tree Layout."/>
       <defaultLayer name="Default">
-        <nodeMappings name="Issue" domainClass="Issue">
-          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+        <nodeMappings name="BenefitNode" domainClass="Benefit">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Improvement" domainClass="Improvement">
-          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+        <nodeMappings name="NFRNode" domainClass="NFR">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Solution" domainClass="Solution">
-          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+        <nodeMappings name="RequirementNode" domainClass="Requirement">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="SolutionNode" domainClass="Solution">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="IssueToImprovement" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Issue']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Improvement']" targetFinderExpression="feature:improvedBy">
+        <nodeMappings name="IssueNode" domainClass="Issue">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="CauseNode" domainClass="Cause">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ImprovementNode" domainClass="Improvement">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="RiskNode" domainClass="Risk">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:label" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="NFRRequirementToSolutionImplementedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='NFRNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='RequirementNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='SolutionNode']" targetFinderExpression="feature:implementedBy">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -33,15 +69,47 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SolutionToIssueEase" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Solution']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Issue']" targetFinderExpression="feature:eases">
+        <edgeMappings name="NFRRequirementToIssueChallengedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='NFRNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='RequirementNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='IssueNode']" targetFinderExpression="feature:challengedBy">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" labelExpression="challenged by">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="SolutionToIssueEase" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='SolutionNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='IssueNode']" targetFinderExpression="feature:eases">
           <style lineStyle="dash_dot" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" labelExpression="eases">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="SolutionToIssueBlockedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='SolutionNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='IssueNode']" targetFinderExpression="feature:blockedBy">
+          <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SolutionToIssueBlockedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Solution']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='Issue']" targetFinderExpression="feature:blockedBy">
+        <edgeMappings name="IssueToImprovement" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='IssueNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='ImprovementNode']" targetFinderExpression="feature:improvedBy">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="IssueToCauseCausedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='IssueNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='CauseNode']" targetFinderExpression="feature:causedBy">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="NfrReqSolToBenefit" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='NFRNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='RequirementNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='SolutionNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Model']/@defaultLayer/@nodeMappings[name='BenefitNode']" targetFinderExpression="feature:benefits">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">

@@ -10,33 +10,37 @@ Node:
 	Benefit | NFR | Requirement | Solution | Issue | Cause | Improvement | Risk;
 
 Benefit:
-	"benefit" name=ID 
+	"benefit" name=ID label=STRING
 	(doc=STRING)?;
 
 NFR:
-	"nfr" name=ID (doc=STRING)?
+	"nfr" name=ID label=STRING (doc=STRING)?
 	("implemented" "by" implementedBy+=[Solution] (',' implementedBy+=[Solution])*)?
-	("challenged" "by" challengedBy+=[Issue] (',' challengedBy+=[Issue])*)?;
+	("challenged" "by" challengedBy+=[Issue] (',' challengedBy+=[Issue])*)?
+	('benefits' benefits+=[Benefit] (',' benefits+=[Benefit])*)?;
 
 Requirement:
-	"requirement" name=ID (doc=STRING)?;
+	"requirement" name=ID label=STRING (doc=STRING)?
+	("implemented" "by" implementedBy+=[Solution] (',' implementedBy+=[Solution])*)?
+	("challenged" "by" challengedBy+=[Issue] (',' challengedBy+=[Issue])*)?
+	('benefits' benefits+=[Benefit] (',' benefits+=[Benefit])*)?;
 
 Solution:
-	'solution' name=ID (doc=STRING)?
+	'solution' name=ID label=STRING (doc=STRING)?
 	("blocked" "by" blockedBy+=[Issue] (',' blockedBy+=[Issue])*)?
-	('eases' eases+=[Issue](','eases+=[Issue])*)?
-;
+	('eases' eases+=[Issue] (',' eases+=[Issue])*)?
+	('benefits' benefits+=[Benefit] (',' benefits+=[Benefit])*)?;
 
 Issue:
-	'issue' name=ID (doc=STRING)?
-	('caused' 'by' causedBy+=[Cause](','causedBy+=[Cause])*)?
-	('improved' 'by' improvedBy+=[Improvement](','improvedBy+=[Improvement])*)?
-;
+	'issue' name=ID label=STRING (doc=STRING)?
+	('caused' 'by' causedBy+=[Cause] (',' causedBy+=[Cause])*)?
+	('improved' 'by' improvedBy+=[Improvement] (',' improvedBy+=[Improvement])*)?;
+
 Cause:
-	'cause' name=ID (doc=STRING)?;
+	'cause' name=ID label=STRING (doc=STRING)?;
 
 Improvement:
-	'improvement' name=ID (doc=STRING)?;
+	'improvement' name=ID label=STRING (doc=STRING)?;
 
 Risk:
-	'risk' name=ID (doc=STRING)?;
+	'risk' name=ID label=STRING (doc=STRING)?;
