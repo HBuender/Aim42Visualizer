@@ -8,7 +8,7 @@ import de.itemis.iac.iACDSL.Model
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
-import org.junit.jupiter.api.Assertions
+import static extension org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
@@ -16,15 +16,22 @@ import org.junit.jupiter.api.^extension.ExtendWith
 @InjectWith(IACDSLInjectorProvider)
 class IACDSLParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	extension ParseHelper<Model> parseHelper
 	
 	@Test
-	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
-		''')
-		Assertions.assertNotNull(result)
+	def void loadEmptyModel() {
+		''''''.parseAndValidate		
+	}
+	
+	@Test
+	def void loadSingleIssue() {
+		'''issue single'''.parseAndValidate		
+	}
+	
+	def void parseAndValidate(CharSequence it){
+		val result = parse
+		result.assertNotNull
 		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
 }
